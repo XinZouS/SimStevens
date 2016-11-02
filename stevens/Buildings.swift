@@ -28,7 +28,7 @@ let descriptionOf : [String:String] = [
     
     "Babbio Center": "The Howe School of Technology Management is one of the world’s preeminent institutions in the education of professionals who lead and manage technological innovation in businesses in America and around the world.",
     
-    "Ship": "let's go to outer ocean for aventure!!!   d===(^o^)b "
+    "Ship": "let's go to outer ocean for aventure!!!   d(^o^)b "
 ]
 
 /// for building upgrade: 
@@ -46,6 +46,34 @@ let buildingImageOf : [String:String] = [
     
 ]
 
+/// for doing research in buildings:
+let researchingImageOf : [String:String] = [
+    
+    "The Gate House":           "duck",
+    "Edwin A. Stevens Building": "Spaceship",
+    "Carnegie Laboratory":      "Spaceship",
+    "Walker Gymnasium":         "duck",
+    "Burchard Building":        "Spaceship",
+    "W.Howe Center":            "duck",
+    "Samuel C. Williams Library": "duck",
+    "Babbio Center":            "Spaceship",
+    "Ship":                     "Spaceship"
+    
+]
+let researchDescriptionOf : [String:String] = [
+    
+    "The Gate House":           "duck researchDescription",
+    "Edwin A. Stevens Building": "Spaceship researchDescription",
+    "Carnegie Laboratory":      "Spaceship researchDescription",
+    "Walker Gymnasium":         "duck researchDescription",
+    "Burchard Building":        "SpaceshipresearchDescription",
+    "W.Howe Center":            "duckresearchDescription",
+    "Samuel C. Williams Library": "duckresearchDescription",
+    "Babbio Center":            "SpaceshipresearchDescription",
+    "Ship":                     "SpaceshipresearchDescription"
+    
+]
+
 let buildingUpgradeTimeOf : [String:TimeInterval] = [
     
     "The Gate House":           5,  // seconds
@@ -57,6 +85,20 @@ let buildingUpgradeTimeOf : [String:TimeInterval] = [
     "Samuel C. Williams Library": 7203,
     "Babbio Center":            14403,
     "Ship":                     5
+    
+]
+
+let buildingOrders : [String:Int] = [
+    
+    "The Gate House":           1,
+    "Edwin A. Stevens Building": 1,
+    "Carnegie Laboratory":      2,
+    "Walker Gymnasium":         2,
+    "Burchard Building":        3,
+    "W.Howe Center":            3,
+    "Samuel C. Williams Library": 3,
+    "Babbio Center":            3,
+    "Ship":                     1
     
 ]
 
@@ -87,21 +129,22 @@ let buildingResearchOf : [String:String] = [
     
 ]
 
-struct Building {
+class Building {
     var node : SKSpriteNode!
     var name : String
-    var year : String
+    var year : Int
     var level: Int
+    var order: Int
     var containStudents: Int
     var upGradeCost: Float
     
-    init(image:String, name:String, year:String, level:Int, numOfStudents:Int, upGradeCost: Float,
-         x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat){
+    init(image:String, name:String, year:Int, level:Int, order:Int, numOfStudents:Int, upGradeCost: Float, x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat){
         self.node = SKSpriteNode(imageNamed: image)
         self.node.name = name
         self.name = name
         self.year = year
         self.level = level
+        self.order = order
         self.containStudents = numOfStudents
         self.upGradeCost = upGradeCost
         
@@ -110,6 +153,23 @@ struct Building {
         self.node.zPosition = 2 // layer.building.rawvalue
     }
     
+    func upgradeIn(parentNode: SKSpriteNode) {
+        let oldPosition = node.position
+        let oldzPosition = node.zPosition
+        let oldSize = node.size
+        var oldNode:[SKNode] = []
+        oldNode.append(self.node)
+        parentNode.removeChildren(in: oldNode)
+        
+        let img = buildingImageOf[name]!
+        node = SKSpriteNode(imageNamed: img)
+        node.position = oldPosition
+        node.zPosition = oldzPosition + 1
+        node.size = oldSize
+        parentNode.addChild(node)
+        
+        level += 1
+    }
 }
 
 

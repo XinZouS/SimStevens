@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		660AA7451DCA35FD006B427E /* InfoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660AA7441DCA35FD006B427E /* InfoBox.swift */; };
 		661B58341DC3820D00B3ADCE /* Buildings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661B58331DC3820D00B3ADCE /* Buildings.swift */; };
 		6652D2B21DB1216200617773 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652D2B11DB1216200617773 /* AppDelegate.swift */; };
 		6652D2B41DB1216200617773 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6652D2B31DB1216200617773 /* GameScene.sks */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		660AA7441DCA35FD006B427E /* InfoBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoBox.swift; sourceTree = "<group>"; };
 		661B58331DC3820D00B3ADCE /* Buildings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buildings.swift; sourceTree = "<group>"; };
 		6652D2AE1DB1216200617773 /* stevens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stevens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6652D2B11DB1216200617773 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				6652D2B51DB1216200617773 /* Actions.sks */,
 				6652D2B71DB1216200617773 /* GameScene.swift */,
 				661B58331DC3820D00B3ADCE /* Buildings.swift */,
+				660AA7441DCA35FD006B427E /* InfoBox.swift */,
 				6652D2B91DB1216200617773 /* GameViewController.swift */,
 				66F272831DB9564A0093BE7C /* LaunchScreen.storyboard */,
 				66F272841DB9564A0093BE7C /* Main.storyboard */,
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F2726A1DB94CB90093BE7C /* LoginViewController.swift in Sources */,
+				660AA7451DCA35FD006B427E /* InfoBox.swift in Sources */,
 				661B58341DC3820D00B3ADCE /* Buildings.swift in Sources */,
 				6652D2B81DB1216200617773 /* GameScene.swift in Sources */,
 				6652D2BA1DB1216200617773 /* GameViewController.swift in Sources */,
